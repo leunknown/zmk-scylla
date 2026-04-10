@@ -16,7 +16,8 @@
 
 		/* WS2812 */
 		/* Add the required color mapping for modern ZMK */
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+        /* 1 = Green, 2 = Red, 3 = Blue. This is the GRB mapping. */
+        color-mapping = <2 1 3>;
 
         /* Updated timing frames for better compatibility with Zephyr 3.x+ */
         spi-one-frame = <0x7c>;
