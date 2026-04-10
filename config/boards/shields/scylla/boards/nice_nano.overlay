@@ -16,6 +16,7 @@
 
 		/* WS2812 */
 		/* Add the required color mapping for modern ZMK */
+		chain-length = <29>;
         /* 1 = Green, 2 = Red, 3 = Blue. This is the GRB mapping. */
         color-mapping = <2 1 3>;
 
