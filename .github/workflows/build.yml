@@ -17,12 +17,13 @@ jobs:
         name: Fetch Build Matrix
         run: |
           matrix=$(yaml2json build.yaml | jq -c .)
-          yaml2json build.yaml
           echo "matrix=${matrix}" >> $GITHUB_OUTPUT
+
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      # Updated to the latest stable ZMK build image
+      image: zmkfirmware/zmk-build-arm:stable
     needs: matrix
     name: Build
     strategy:
@@ -44,8 +45,10 @@ jobs:
           echo "extra-cmake-args=${EXTRA_CMAKE_ARGS}" >> $GITHUB_OUTPUT
           echo "artifact-name=${ARTIFACT_NAME}" >> $GITHUB_OUTPUT
           echo "display-name=${DISPLAY_NAME}" >> $GITHUB_OUTPUT
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Cache west modules
         uses: actions/cache@v4
         env:
@@ -62,24 +65,29 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Fix west version
-        run: pip3 install west==0.14.0
+
       - name: West Init
         run: west init -l config
+
       - name: West Update
         run: west update
+
       - name: West Zephyr export
         run: west zephyr-export
+
       - name: West Build (${{ steps.variables.outputs.display-name }})
         run: |
           west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/config ${{ steps.variables.outputs.extra-cmake-args }} ${{ matrix.cmake-args }}
+
       - name: ${{ steps.variables.outputs.display-name }} DTS File
         if: ${{ always() }}
         run: |
           if [ -f "build/zephyr/${{ matrix.board }}.dts.pre.tmp" ]; then cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp; fi
           if [ -f "build/zephyr/zephyr.dts" ]; then cat -n build/zephyr/zephyr.dts; fi
+
       - name: ${{ steps.variables.outputs.display-name }} Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+
       - name: Rename artifacts
         run: |
           mkdir build/artifacts
@@ -90,8 +98,10 @@ jobs:
           then
             cp build/zephyr/zmk.hex "build/artifacts/${{ steps.variables.outputs.artifact-name }}.hex"
           fi
+
       - name: Archive (${{ steps.variables.outputs.display-name }})
         uses: actions/upload-artifact@v4
         with:
-          name: firmware-${{ steps.variables.outputs.artifact-name }}
+          # v4 requires unique names for multiple uploads
+          name: firmware-${{ matrix.board }}-${{ matrix.shield }}
           path: build/artifacts
