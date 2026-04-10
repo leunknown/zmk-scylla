@@ -62,6 +62,8 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - name: Fix west version
+        run: pip3 install west==0.14.0
       - name: West Init
         run: west init -l config
       - name: West Update
