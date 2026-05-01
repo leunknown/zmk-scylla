@@ -3,7 +3,7 @@ if SHIELD_SCYLLA_LEFT
     config ZMK_KEYBOARD_NAME
         default "Scylla"
 
-    config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    config ZMK_SPLIT_ROLE_CENTRAL
         default y
 
 endif
@@ -11,6 +11,11 @@ endif
 if SHIELD_SCYLLA_LEFT || SHIELD_SCYLLA_RIGHT
 
     config ZMK_SPLIT
+        default y
+
+    # Enable ZMK Studio support (2026 standard)
+    # Allows real-time keymap editing without reflashing.
+    config ZMK_STUDIO
         default y
 
 endif
