@@ -1,9 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 
-&uicr {
-    nfct-pins-as-gpios;
-};
+//&uicr {
+//    nfct-pins-as-gpios;
+//};
 
 / {
     chosen {
