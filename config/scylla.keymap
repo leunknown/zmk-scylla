@@ -29,7 +29,7 @@
                 &kp TILDE &kp EXCL &kp AT    &kp HASH   &kp DLLR   &kp PRCNT            &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp DEL
                 &kp CAPS  &none    &none     &none      &sys_reset &kp LBRC             &kp RBRC  &kp KP_N7 &kp KP_N8 &kp KP_N9 &none     &kp PLUS
                 &none     &kp HOME &kp PG_UP &kp PG_DN  &kp END    &kp LPAR             &kp RPAR  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp MINUS &kp PIPE 
-                &none     &none    &none     &none      &none      &none                &none     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp EQUAL &kp UNDER
+                &none     &none    &none     &none      &none      &none                &none     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSLH &kp UNDER
                                              &trans     &kp HOME   &trans               &none     &mo ADJ   &trans
                                                         &kp LEFT   &kp RIGHT            &kp RCTRL &kp RET
             >;
