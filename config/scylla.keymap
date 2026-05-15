@@ -28,9 +28,9 @@
             bindings = <
                 &kp TILDE   &kp EXCL &kp AT    &kp HASH   &kp DLLR   &kp PRCNT            &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp DEL
                 &kp CAPS    &none    &none     &none      &sys_reset &kp LBRC             &kp RBRC  &kp KP_N7 &kp KP_N8 &kp KP_N9 &none     &kp PLUS
-                &none       &kp HOME &kp PG_UP &kp PG_DN  &kp END    &kp LPAR             &kp RPAR  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp MINUS &kp PIPE 
-                &bootloader &kp LEFT &kp UP    &kp DOWN   &kp RIGHT  &none                &none     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSLH  &kp UNDER
-                                               &trans     &kp HOME   &trans               &none     &mo ADJ   &trans
+                &none       &kp LEFT &kp UP    &kp DOWN   &kp RIGHT  &kp LPAR             &kp RPAR  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp MINUS &kp PIPE 
+                &trans      &kp HOME &kp PG_UP &kp PG_DN  &kp END    &bootloader          &none     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSLH  &kp UNDER
+                                               &trans     &none      &trans               &trans    &mo ADJ   &trans
                                                           &kp LEFT   &kp RIGHT            &kp DEL   &kp RET
             >;
         };
@@ -38,7 +38,7 @@
         raise_layer {
             bindings = <
                 &kp F12 &kp F1   &kp F2          &kp F3          &kp F4          &kp F5               &kp F6      &kp F7     &kp F8     &kp F9     &kp F10  &kp F11
-                &none   &none    &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF &kp LBRC             &kp RBRC    &sys_reset &kp KP_NUM &kp INS    &kp SLCK &kp C_VOL_UP
+                &none   &none    &none           &none           &none           &kp LBRC             &kp RBRC    &sys_reset &kp INS    &kp KP_NUM &kp SLCK &kp C_VOL_UP
                 &none   &kp LEFT &kp UP          &kp DOWN        &kp RIGHT       &kp LPAR             &kp RPAR    &kp C_PREV &kp C_PLAY &kp C_NEXT &none    &kp C_MUTE
                 &none   &none    &none           &none           &none           &none                &bootloader &none      &none      &none      &none    &kp C_VOL_DN 
                                                  &trans          &kp HOME        &mo ADJ              &trans   &kp RALT   &trans
