@@ -20,7 +20,7 @@
                 &kp LSHIFT &kp A   &kp S     &kp D     &kp F         &kp G                     &kp H    &kp J    &kp K     &kp L   &kp SEMI &kp SQT
                 &kp LCTRL  &kp Z   &kp X     &kp C     &kp V         &kp B                     &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp PG_DN
                                              &kp LGUI  &mo LWR       &kp SPACE                 &kp RET  &mo RSE  &kp EQUAL
-                                                       &mt LALT LBKT &kp RBKT                  &kp LALT &kp MINUS
+                                                       &mt LALT LBKT &kp RBKT                  &kp RSHIFT &kp MINUS
             >;
         };
 
